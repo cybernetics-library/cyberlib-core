@@ -8,10 +8,10 @@ from collections import defaultdict
 from operator import itemgetter
 import copy
 from flask_socketio import SocketIO, emit, send
+import logging
 
 
 #import cybersym_api
-
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -35,16 +35,16 @@ collection_name = 'Your library'
 
 # utility for getting books from library thing and filtering by collection
 def fetch_lib_thing(collection_name):
-    lib_thing = requests.get("http://www.librarything.com/api_getdata.php?userid=cyberneticscon&showstructure=1&max=1000&showTags=10&booksort=title_REV&showCollections=1&responseType=json").json()['books']
+    lib_thing = requests.get("http://www.librarything.com/api_getdata.php?userid=cyberneticscon&showstructure=1&max=100000&showTags=10&booksort=title_REV&showCollections=1&responseType=json").json()['books']
 
     flat_lib_thing = [v for k,v in lib_thing.items()]
 
-    def filter_dict_list(dictlist, key, value):
-        return [d for d in dictlist if value in d[key].values()]
-
-    lib_collection = filter_dict_list(flat_lib_thing, 'collections', collection_name)
-
-    return lib_collection
+    collection_list = []
+    for d in flat_lib_thing:
+        if len(d['collections']) > 0:
+            if collection_name in d['collections'].values():
+               collection_list.append(d)
+    return collection_list
 
 
 # run book fetch on startup

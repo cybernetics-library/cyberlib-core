@@ -2,8 +2,11 @@
 
 ## Setup
 
+### Install
 
-### Api
+```pip install -r requirements.txt```
+
+### API
 
 `python app.py`.
 
