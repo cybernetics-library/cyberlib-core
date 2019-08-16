@@ -1,8 +1,4 @@
-# Remediation Field
-
-~~The CyberCon Simulation (CyberSym) creates a feedback loop between conference speakers and attendees, framing the conference itself as a cybernetic system.~~
-
-This is based off of https://github.com/cybernetics-conference/cybersym.
+# Cybernetics Library Core
 
 ## Setup
 
@@ -43,7 +39,3 @@ Then visit `localhost:8081/planet`, etc.
 
 `app/` directory holds the server-side API with endpoints. Global API is `https://library.cybernetics.social`. Much of the logic can happen in here.
 
-## Reference images
-
-![simulation_architecture_diagram](https://github.com/cybernetics-conference/cybersym/blob/master/repo_images/simulation_architecture_diagram.jpg)
-![simulation_diagram](https://github.com/cybernetics-conference/cybersym/blob/master/repo_images/simulation_diagram.jpg)
