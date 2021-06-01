@@ -45,6 +45,6 @@ tinydb==3.13.0
 trollius==2.0.1
 tzlocal==1.4
 ujson==1.35
-urllib3==1.22
+urllib3==1.26.5
 webencodings==0.5
 Werkzeug==0.15.5
